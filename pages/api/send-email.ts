@@ -25,3 +25,31 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Failed to send email' });
   }
 }
+
+// const nodemailer = require("nodemailer");
+
+// exports.handler = async (event) => {
+//   const body = JSON.parse(event.body);
+
+//   console.log('body', body)
+//   let transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//       user: process.env.EMAIL_USER,
+//       pass: process.env.EMAIL_PASS,
+//     },
+//   });
+//   console.log('transporter', transporter)
+//   await transporter.sendMail({
+//     from: 'info@ldonlineitsolutions.com',
+//     to: body.email,
+//     subject: body.subject,
+//     text: body.message,
+//   });
+
+//   return {
+//     statusCode: 200,
+//     body: JSON.stringify({ message: "Email sent successfully!" }),
+//   };
+// };
+
