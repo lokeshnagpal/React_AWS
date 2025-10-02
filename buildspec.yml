@@ -4,16 +4,17 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 480684249076.dkr.ecr.eu-north-1.amazonaws.com
+      - IMAGE_REPO_NAME=react-next-app
       - IMAGE_TAG=latest
   build:
     commands:
       - echo Building Docker image...
-      - docker build -t react-next-app .
-      - docker tag react-next-app:latest 480684249076.dkr.ecr.eu-north-1.amazonaws.com/react-next-app:$IMAGE_TAG
+      - docker build -t $IMAGE_REPO_NAME .
+      - docker tag $IMAGE_REPO_NAME:latest 480684249076.dkr.ecr.eu-north-1.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
   post_build:
     commands:
       - echo Pushing Docker image to ECR...
-      - docker push 480684249076.dkr.ecr.eu-north-1.amazonaws.com/react-next-app:$IMAGE_TAG
+      - docker push 480684249076.dkr.ecr.eu-north-1.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - echo Build completed
 artifacts:
   files:
