@@ -15,6 +15,7 @@
     "@vercel/analytics": "^1.0.0",
     "@vercel/node": "^5.3.6",
     "bootstrap": "^5.3.7",
+    "docker": "^1.0.0",
     "graphql": "^16.11.0",
     "next": "^13.4.19",
     "nodemailer": "^7.0.6",
