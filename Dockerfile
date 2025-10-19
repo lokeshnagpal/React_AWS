@@ -22,5 +22,4 @@ COPY --from=builder /LD_AWS/node_modules ./node_modules
 COPY --from=builder /LD_AWS/next.config.js ./next.config.js
 
 EXPOSE 3000
-
 CMD ["npm", "start"]
